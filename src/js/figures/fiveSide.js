@@ -37,6 +37,19 @@ class FiveSide {
     rotate(angle) {
         this.sprite.rotation = angle;
     }
+
+    fall() {
+        this.velocityY += 0.98; // Apply gravity to the vertical velocity
+        this.sprite.y += this.velocityY; // Update the y position based on velocity
+        console.log("five fall")
+    }
+
+    getPosition(){
+        return {
+            x : this.sprite.x,
+            y : this.sprite.y
+        }
+    }
 }
 
 export { FiveSide };

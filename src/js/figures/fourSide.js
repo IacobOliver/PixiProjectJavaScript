@@ -1,6 +1,7 @@
 
 
-class FourSide {
+
+class FourSide{
     constructor(x, y, color = 0xff0000, app) {
         // Store the graphics object as a property of the instance
         this.graphics = new PIXI.Graphics();
@@ -43,6 +44,17 @@ class FourSide {
 
     rotate(angle) {
         this.sprite.rotation = angle;
+    }
+
+    fall(){
+        this.sprite.y +=2
+    }
+
+    getPosition(){
+        return {
+            x : this.sprite.x,
+            y : this.sprite.y
+        }
     }
 }
 

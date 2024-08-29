@@ -38,6 +38,17 @@ class Star {
     rotate(angle) {
         this.sprite.rotation = angle;
     }
+
+    fall(){
+        this.sprite.y +=2
+    }
+
+    getPosition(){
+        return {
+            x : this.sprite.x,
+            y : this.sprite.y
+        }
+    }
 }
 
 export { Star };
