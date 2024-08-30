@@ -11,7 +11,7 @@ class Game {
         });
         document.body.appendChild(this.app.view);
         this.shapeFactory = new ShapeFactory(this.app);
-        this.enemies = [];
+        this.shapes = [];
         this.timePassed = 0;
 
         // Load assets and then run onAssetsLoaded
@@ -24,26 +24,17 @@ class Game {
     }
 
     gameLoop(delta) {
+        this.shapeFactory.updateShapes(this.shapes); //for gravity
         this.timePassed += delta / 60;
-      
-
+    
         if (this.timePassed >= 1) {
-            let randomXPosition = Math.floor(Math.random() * this.app.screen.width);
-
-            
-            let randomShape = this.shapeFactory.createRandomShape()
-            
-            // Get the current sprite and its position
-            let currentPosition = randomShape.getPosition();
-            randomShape.setPosition(randomXPosition, currentPosition.y);
-
-
+            const randomShape = this.shapeFactory.createRandomShape()
+            this.shapes.push(randomShape)
+           
             this.app.stage.addChild(randomShape.getSprite())
-
             this.timePassed = 0;
         }
 
-       
     }
 }
 
