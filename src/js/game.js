@@ -1,11 +1,4 @@
 
-// import { ThreeSide } from "./figures/threeSide.js"
-// import { FourSide } from "./figures/fourSide.js";
-// import { FiveSide } from "./figures/fiveSide.js";
-// import { SixSide } from "./figures/sixSide.js";
-// import { Circle } from "./figures/circle.js";
-// import { Ellipse } from "./figures/Ellipse.js";
-// import { Star } from "./figures/star.js";
 import {ShapeFactory} from "./service/ShapeFactory.js"
 
 class Game {
@@ -37,8 +30,8 @@ class Game {
         if (this.timePassed >= 1) {
             let randomXPosition = Math.floor(Math.random() * this.app.screen.width);
 
-            const randomInt = Math.floor(Math.random() * 7);
-            let randomShape = this.shapeFactory.createShape(randomInt)
+            
+            let randomShape = this.shapeFactory.createRandomShape()
             
             // Get the current sprite and its position
             let currentPosition = randomShape.getPosition();

@@ -1,10 +1,11 @@
 class Star {
-    constructor(x, y, points = 5, color = 0xff0000, app) {
+    constructor(x, y, color = 0xff0000, app) {
         this.graphics = new PIXI.Graphics();
         this.graphics.beginFill(color);
 
         const outerRadius = Math.random() * 50 + 20; // Random outer radius between 20 and 70
         const innerRadius = outerRadius / 2; // Inner radius is half of the outer radius
+        const points = 5; // Fixed number of points
         const angleStep = Math.PI / points;
 
         this.graphics.moveTo(outerRadius, 0);
@@ -39,15 +40,15 @@ class Star {
         this.sprite.rotation = angle;
     }
 
-    fall(){
-        this.sprite.y +=2
+    fall() {
+        this.sprite.y += 2;
     }
 
-    getPosition(){
+    getPosition() {
         return {
-            x : this.sprite.x,
-            y : this.sprite.y
-        }
+            x: this.sprite.x,
+            y: this.sprite.y
+        };
     }
 }
 

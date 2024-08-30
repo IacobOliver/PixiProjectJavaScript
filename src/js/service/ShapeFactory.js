@@ -9,22 +9,38 @@ import { ThreeSide } from "../figures/threeSide.js";
 export class ShapeFactory {
     constructor(app) {
         this.app = app;
-        this.shapeConstructors = [
-            { type: ThreeSide, args: [10, 100, 0xff0000, app] },
-            { type: FourSide, args: [100, 100, 0xff0000, app] },
-            { type: FiveSide, args: [200, 100, 0xff0000, app] },
-            { type: SixSide, args: [350, 100, 0xff0000, app] },
-            { type: Circle, args: [450, 350, 0xff0000, app] },
-            { type: Ellipse, args: [550, 400, 0xff0000, app] },
-            { type: Star, args: [150, 450, 5, 0xff0000, app] },
+        this.shapeTypes = [
+            ThreeSide,
+            FourSide,
+            FiveSide,
+            SixSide,
+            Circle,
+            Ellipse,
+            Star,
         ];
     }
 
-    createShape(randomInt) {
-        if (randomInt < 0 || randomInt >= this.shapeConstructors.length) {
-            throw new Error('Invalid randomInt value');
-        }
-        const { type, args } = this.shapeConstructors[randomInt];
+    getRandomHexColor() {
+        const randomColor = Math.floor(Math.random() * 0xFFFFFF);
+        return randomColor;
+    }
+
+    getRandomShapeIndex(){
+       return Math.floor(Math.random() * 7);
+    }
+
+    createRandomShape(){
+        const randomXPosition = Math.floor(Math.random() * this.app.screen.width);
+        const randomYPosition = Math.floor(Math.random() * this.app.screen.height);
+        const randomHexColor = this.getRandomHexColor();
+        let args = [randomXPosition, randomXPosition, randomHexColor, this.app]
+        return this.createShape(...args)
+    }
+
+    createShape(x, y, color = 0xff0000) {
+        const args = [x, y, color, this.app]
+        const type = this.shapeTypes[this.getRandomShapeIndex()];
         return new type(...args);
+       
     }
 }
