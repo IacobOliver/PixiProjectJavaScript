@@ -14,16 +14,16 @@ let decreaseGravityValueTag = document.getElementById("decreaseGravityValue")
 
 
 function increaseShapePerSecond() {
-    if (shapesPerSecondValue >= 1){
-        console.log(shapesPerSecondValue)
-        setShapesPerSecondValue(shapesPerSecondValue + 1)
-        shapesPerSecondTag.innerText = "Shapes/s: " + shapesPerSecondValue
-    }
+    setShapesPerSecondValue(shapesPerSecondValue + 1)
+    shapesPerSecondTag.innerText = "Shapes/s: " + shapesPerSecondValue
 }
 
 function decreaseShapePerSecond() {
-    setShapesPerSecondValue(shapesPerSecondValue - 1)
-    shapesPerSecondTag.innerText = "Shapes/s: " + shapesPerSecondValue
+    if (shapesPerSecondValue >= 1) {
+        setShapesPerSecondValue(shapesPerSecondValue - 1)
+        shapesPerSecondTag.innerText = "Shapes/s: " + shapesPerSecondValue;
+        console.log(shapesPerSecondValue)
+    }
 }
 
 function increaseGravityValue() {
