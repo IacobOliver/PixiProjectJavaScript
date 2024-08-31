@@ -3,7 +3,6 @@ import { shapes } from "../GlobalVariables.js";
 class Star {
     constructor(x, y, color = 0xff0000, app) {
         this.app = app
-        this.id = `shape-${Math.random().toString(36).substr(2, 9)}`;
         this.graphics = new PIXI.Graphics();
         this.graphics.beginFill(color);
 
