@@ -1,5 +1,9 @@
+import { shapes } from "../service/GlobalVariables.js";
+
 class Circle {
     constructor(x, y, color = 0xff0000, app) {
+        this.id = `shape-${Math.random().toString(36).substr(2, 9)}`;
+        this.app = app
         this.graphics = new PIXI.Graphics();
         this.graphics.beginFill(color);
 
@@ -14,6 +18,9 @@ class Circle {
         this.sprite.y = y;
 
         this.velocityY = 0; // Initial vertical velocity
+        this.sprite.interactive = true;
+        this.sprite.buttonMode = true;
+        this.sprite.on('pointerdown', this.handleClick.bind(this))
     }
 
     getSprite() {
@@ -29,16 +36,23 @@ class Circle {
         this.sprite.rotation = angle;
     }
 
-    fall() {
-        this.velocityY += 0.98; // Apply gravity to the vertical velocity
-        this.sprite.y += this.velocityY; // Update the y position based on velocity
-        console.log("circle fall")
-    }
-
     getPosition(){
         return {
             x : this.sprite.x,
             y : this.sprite.y
+        }
+    }
+
+    handleClick(event) {
+        event.stopPropagation(); 
+        if (this.sprite) {
+            this.app.stage.removeChild(this.sprite);
+        }
+        
+        // Remove shape from the shapes array
+        const index = shapes.indexOf(this);
+        if (index !== -1) {
+            shapes.splice(index, 1);
         }
     }
 }

@@ -1,5 +1,9 @@
+import { shapes } from "../service/GlobalVariables.js";
+
 class Star {
     constructor(x, y, color = 0xff0000, app) {
+        this.app = app
+        this.id = `shape-${Math.random().toString(36).substr(2, 9)}`;
         this.graphics = new PIXI.Graphics();
         this.graphics.beginFill(color);
 
@@ -25,6 +29,10 @@ class Star {
         this.sprite = new PIXI.Sprite(this.texture);
         this.sprite.x = x;
         this.sprite.y = y;
+
+        this.sprite.interactive = true;
+        this.sprite.buttonMode = true;
+        this.sprite.on('pointerdown', this.handleClick.bind(this))
     }
 
     getSprite() {
@@ -40,15 +48,24 @@ class Star {
         this.sprite.rotation = angle;
     }
 
-    fall() {
-        this.sprite.y += 2;
-    }
-
     getPosition() {
         return {
             x: this.sprite.x,
             y: this.sprite.y
         };
+    }
+
+    handleClick(event) {
+        event.stopPropagation(); 
+        if (this.sprite) {
+            this.app.stage.removeChild(this.sprite);
+        }
+        
+        // Remove shape from the shapes array
+        const index = shapes.indexOf(this);
+        if (index !== -1) {
+            shapes.splice(index, 1);
+        }
     }
 }
 
