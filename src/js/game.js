@@ -6,13 +6,14 @@ import { ShapeFactory } from "./service/ShapeFactory.js"
 class Game {
     constructor() {
         // Initialize the Pixi Application
+        const gameContainer = document.getElementById("game")
         this.app = new PIXI.Application({
-            width: 800,
-            height: 600,
+            width: gameContainer.clientWidth,
+            height: gameContainer.clientHeight,
             backgroundColor: 0x1099bb,
         });
-        document.body.appendChild(this.app.view);
-        this.createRedBackground();
+        document.getElementById("game").appendChild(this.app.view);
+        this.createbackground();
 
         this.shapeFactory = new ShapeFactory(this.app);
         this.timePassed = 0;
@@ -20,15 +21,15 @@ class Game {
         PIXI.Assets.load([]).then(() => this.onAssetsLoaded());
     }
 
-    createRedBackground() {
-        this.redBackground = new PIXI.Graphics();
-        this.redBackground.beginFill(0x000000); // Black color
-        this.redBackground.drawRect(0, 0, this.app.screen.width, this.app.screen.height);
-        this.redBackground.endFill();
-        this.app.stage.addChildAt(this.redBackground, 0); 
+    createbackground() {
+        this.background = new PIXI.Graphics();
+        this.background.beginFill(0x000000); // Black color
+        this.background.drawRect(0, 0, this.app.screen.width, this.app.screen.height);
+        this.background.endFill();
+        this.app.stage.addChildAt(this.background, 0); 
 
-        this.redBackground.interactive = true;
-        this.redBackground.on('pointerdown', this.handleCanvasClick.bind(this));
+        this.background.interactive = true;
+        this.background.on('pointerdown', this.handleCanvasClick.bind(this));
     }
 
     onAssetsLoaded() {
@@ -49,12 +50,11 @@ class Game {
     }
 
     handleCanvasClick(event) {
-        console.log(event)
         // const { x, y } = event.data.global;
 
         const x = event.clientX - this.app.view.offsetLeft;
         const y = event.clientY - this.app.view.offsetTop;
-
+        console.log(x,y)
        
 
         const args = [x, y, getRandomHexColor(), this.app]

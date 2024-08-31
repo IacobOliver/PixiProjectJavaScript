@@ -1,14 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixi.js OOP Project</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.0.3/pixi.min.js"></script>
     <!-- <script src="https://pixijs.download/release/pixi.min.js"></script> -->
+    <link rel="stylesheet" href="./src/css/app.css">
 </head>
+
 <body>
+    <div id="root" class="container">
+        <header>
+            <h1>ShapeStorm</h1>
+            <h4>Made by <a target="_blank" href="https://iacob-oliver.vercel.app/">Iacob Oliver</a></h4>
+        </header>
+        <div id="game"></div>
+        <div class="controlls">
+            <div class="options">
+                <div class="buttons">
+                    <div class="controllButton">
+                        <img draggable="false" src="src\images\icons\minus-svgrepo-com.svg">
+                    </div>
+                    <div class="controllButton">
+                        <img draggable="false" src="src\images\icons\plus-svgrepo-com.svg">
+                    </div>
+                </div>
+                <p>NUMBER OF SHAPES PER SECOND</p>
+            </div>
+
+            <div class="options">
+                <div class="buttons">
+                    <div class="controllButton">
+                        <img draggable="false" src="src\images\icons\minus-svgrepo-com.svg">
+                    </div>
+                    <div class="controllButton">
+                        <img draggable="false" src="src\images\icons\plus-svgrepo-com.svg">
+                    </div>
+                </div>
+                <p>GRAVITY VALUE</p>
+            </div>
+        </div>
+
+    </div>
+
     <script src="./src/js/app.js" type="module"></script>
 </body>
+
 </html>
