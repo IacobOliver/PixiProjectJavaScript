@@ -1,4 +1,4 @@
-import { shapes } from "../service/GlobalVariables.js";
+import { shapes } from "../GlobalVariables.js";
 
 class Circle {
     constructor(x, y, color = 0xff0000, app) {

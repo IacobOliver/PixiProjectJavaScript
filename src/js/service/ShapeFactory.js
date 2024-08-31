@@ -5,7 +5,7 @@ import { FourSide } from "../figures/fourSide.js";
 import { SixSide } from "../figures/sixSide.js";
 import { Star } from "../figures/star.js";
 import { ThreeSide } from "../figures/threeSide.js";
-import { gravity, shapes } from "./GlobalVariables.js";
+import { gravity, shapes } from "../GlobalVariables.js";
 import { getRandomHexColor } from "./HelperFunction.js";
 
 export class ShapeFactory {
@@ -43,7 +43,7 @@ export class ShapeFactory {
     }
 
     updateShapes() {
-        shapeNumber.innerText = "Shape number : " + shapes.length
+       
         shapes.forEach(shape => {
             if (shape.sprite) {
                 // Apply gravity
@@ -54,6 +54,7 @@ export class ShapeFactory {
                 if (shape.getPosition().y > this.app.screen.height - shape.sprite.height + 300) {
                     shape.setPosition(shape.getPosition().x, this.app.screen.height - shape.sprite.height);
                     this.removeShape(shape)
+                    shapeNumber.innerText = "Shape number : " + shapes.length
                 }
             }
         });

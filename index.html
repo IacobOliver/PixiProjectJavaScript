@@ -19,19 +19,10 @@
         </header>
 
         <div class="statistics">
-            <!-- <div>
-                <p id="shapeNumber">Shape number : 0</p>
-                <p id="areaOccupied">Area occupied: 0/100</p>
-            </div>
-           <div>
-            <p id="shapeNumber">Gravity : 0</p>
-            <p id="areaOccupied">Shapes/s: 0</p>
-           </div>   -->
-
             <p id="shapeNumber">Shape number : 0</p>
             <p id="areaOccupied">Area occupied: 0/100</p>
             <p id="gravityValue">Gravity : 0</p>
-            <p id="shapesPerSecond">Shapes/s: 0</p>
+            <p id="shapesPerSecond">Shapes/s: 1</p>
         </div>
 
         <div id="game"></div>
@@ -39,24 +30,24 @@
         <div class="controlls">
             <div class="options">
                 <div class="buttons">
-                    <div class="controllButton">
+                    <button id="decreaseNumberOfShapes" class="controllButton">
                         <img draggable="false" src="src\images\icons\minus-svgrepo-com.svg">
-                    </div>
-                    <div class="controllButton">
+                    </button>
+                    <button id="increaseNumberOfShapes"  class="controllButton">
                         <img draggable="false" src="src\images\icons\plus-svgrepo-com.svg">
-                    </div>
+                    </button>
                 </div>
                 <p>NUMBER OF SHAPES PER SECOND</p>
             </div>
 
             <div class="options">
                 <div class="buttons">
-                    <div class="controllButton">
+                    <button class="controllButton">
                         <img draggable="false" src="src\images\icons\minus-svgrepo-com.svg">
-                    </div>
-                    <div class="controllButton">
+                    </button>
+                    <button class="controllButton">
                         <img draggable="false" src="src\images\icons\plus-svgrepo-com.svg">
-                    </div>
+                    </button>
                 </div>
                 <p>GRAVITY VALUE</p>
             </div>
@@ -64,7 +55,8 @@
 
     </div>
 
-    <script src="./src/js/app.js" type="module"></script>
+    <script src="./src/js/service/EventListeners.js" type="module" ></script>
+    <script src="./src/js/app.js" type="module" ></script>
 </body>
 
 </html>
