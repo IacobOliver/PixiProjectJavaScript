@@ -5,13 +5,13 @@ import { FourSide } from "../figures/fourSide.js";
 import { SixSide } from "../figures/sixSide.js";
 import { Star } from "../figures/star.js";
 import { ThreeSide } from "../figures/threeSide.js";
-import { shapes } from "./GlobalVariables.js";
+import { gravity, shapes } from "./GlobalVariables.js";
 import { getRandomHexColor } from "./HelperFunction.js";
 
 export class ShapeFactory {
     constructor(app) {
         this.app = app;
-        this.gravity = 0.003; // Gravity value (pixels per frame)
+        this.gravity = gravity
         this.shapeTypes = [
             ThreeSide,
             FourSide,
@@ -43,6 +43,7 @@ export class ShapeFactory {
     }
 
     updateShapes() {
+        shapeNumber.innerText = "Shape number : " + shapes.length
         shapes.forEach(shape => {
             if (shape.sprite) {
                 // Apply gravity
@@ -52,7 +53,6 @@ export class ShapeFactory {
                 // Check for collision with the ground
                 if (shape.getPosition().y > this.app.screen.height - shape.sprite.height + 300) {
                     shape.setPosition(shape.getPosition().x, this.app.screen.height - shape.sprite.height);
-                  
                     this.removeShape(shape)
                 }
             }
