@@ -1,6 +1,6 @@
 
-import { shapes, shapesPerSecondValue } from "./GlobalVariables.js";
-import { getRandomHexColor } from "./service/HelperFunction.js";
+import { occupiedGameArea, setTotalGameArea, shapes, shapesPerSecondValue, totalGameArea } from "./GlobalVariables.js";
+import { calculateTotalArea, getRandomHexColor } from "./service/HelperFunction.js";
 import { ShapeFactory } from "./service/ShapeFactory.js"
 
 class Game {
@@ -17,6 +17,9 @@ class Game {
         this.shapeFactory = new ShapeFactory(this.app);
         this.timePassed = 0;
 
+        setTotalGameArea(gameContainer.clientWidth * gameContainer.clientHeight);
+        areaOccupied.innerHTML = "Area occupied: " + occupiedGameArea + "/" + totalGameArea + "px&sup2;"
+        console.log(totalGameArea)
         PIXI.Assets.load([]).then(() => this.onAssetsLoaded());
     }
 
@@ -43,6 +46,8 @@ class Game {
             const randomShape = this.shapeFactory.createRandomShape()
             shapes.push(randomShape)
             shapeNumber.innerText = "Shape number : " + shapes.length
+            areaOccupied.innerHTML = "Area occupied: " + calculateTotalArea(shapes) + "/" + totalGameArea + "px&sup2;"
+
 
             this.app.stage.addChild(randomShape.getSprite())
             this.timePassed = 0;

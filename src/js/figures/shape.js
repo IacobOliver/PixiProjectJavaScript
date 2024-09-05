@@ -22,9 +22,12 @@ class Shape {
         this.sprite.on('pointerdown', this.handleClick.bind(this));
     }
 
-    // Abstract method to be implemented by subclasses
     drawShape() {
         throw new Error("Method 'drawShape()' must be implemented.");
+    }
+
+    getArea() {
+        throw new Error("Method 'getArea()' must be implemented.");
     }
 
     getSprite() {
