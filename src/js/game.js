@@ -19,13 +19,12 @@ class Game {
 
         setTotalGameArea(gameContainer.clientWidth * gameContainer.clientHeight);
         areaOccupied.innerHTML = "Area occupied: " + occupiedGameArea + "/" + totalGameArea + "px&sup2;"
-        console.log(totalGameArea)
         PIXI.Assets.load([]).then(() => this.onAssetsLoaded());
     }
 
     createbackground() {
         this.background = new PIXI.Graphics();
-        this.background.beginFill(0x000000); // Black color
+        this.background.beginFill(0x000000);
         this.background.drawRect(0, 0, this.app.screen.width, this.app.screen.height);
         this.background.endFill();
         this.app.stage.addChildAt(this.background, 0);
@@ -39,7 +38,7 @@ class Game {
     }
 
     gameLoop(delta) {
-        this.shapeFactory.updateShapes(this.shapes); //for gravity
+        this.shapeFactory.updateShapes(this.shapes);
         this.timePassed += delta / 60;
 
         if (this.timePassed >= (1/shapesPerSecondValue)) {
@@ -47,7 +46,6 @@ class Game {
             shapes.push(randomShape)
             shapeNumber.innerText = "Shape number : " + shapes.length
             areaOccupied.innerHTML = "Area occupied: " + calculateTotalArea(shapes) + "/" + totalGameArea + "px&sup2;"
-
 
             this.app.stage.addChild(randomShape.getSprite())
             this.timePassed = 0;

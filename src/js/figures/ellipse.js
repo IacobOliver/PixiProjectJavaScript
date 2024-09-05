@@ -8,7 +8,6 @@ class Ellipse extends Shape {
     }
 
     getArea() {
-    console.log("Ellipse arrea")
        const sprite = this.getSprite()
        const width = sprite.width;
        const height = sprite.height

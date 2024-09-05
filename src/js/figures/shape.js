@@ -1,4 +1,4 @@
-// Shape.js
+
 import { shapes } from "../GlobalVariables.js";
 
 class Shape {
@@ -55,8 +55,7 @@ class Shape {
         if (this.sprite) {
             this.app.stage.removeChild(this.sprite);
         }
-        
-        // Remove shape from the shapes array
+
         const index = shapes.indexOf(this);
         if (index !== -1) {
             shapes.splice(index, 1);

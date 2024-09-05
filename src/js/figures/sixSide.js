@@ -4,7 +4,7 @@ import { Shape } from "./shape.js";
 class SixSide extends Shape {
     drawShape() {
         const numSides = 6;
-        const radius = Math.random() * 50 + 20; // Random radius between 20 and 70
+        const radius = Math.random() * 50 + 20;
         const angleStep = (Math.PI * 2) / numSides;
         this.vertices = [];
 
@@ -22,7 +22,6 @@ class SixSide extends Shape {
     }
 
     getArea() {
-        console.log("six area")
         return polygonArea(this.vertices);
     }
 }

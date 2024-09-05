@@ -18,7 +18,6 @@ class FourSide extends Shape {
     }
 
     getArea() {
-        console.log("four area")
         return polygonArea(this.vertices);
     }
 }

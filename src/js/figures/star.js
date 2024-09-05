@@ -2,9 +2,9 @@ import { Shape } from "./shape.js";
 
 class Star extends Shape {
     drawShape() {
-        const outerRadius = Math.random() * 50 + 20; // Random outer radius between 20 and 70
-        const innerRadius = outerRadius / 2; // Inner radius is half of the outer radius
-        const points = 5; // Fixed number of points
+        const outerRadius = Math.random() * 50 + 20; 
+        const innerRadius = outerRadius / 2; 
+        const points = 5;
         const angleStep = Math.PI / points;
         this.vertices = [];
 
@@ -23,7 +23,6 @@ class Star extends Shape {
     }
 
     getArea() {
-        console.log("star area")
         const numPoints = this.vertices.length;
         let area = 0;
 

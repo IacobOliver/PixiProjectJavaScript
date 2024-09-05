@@ -20,7 +20,6 @@ class ThreeSide extends Shape {
     }
 
     getArea() {
-        console.log("three area")
         return polygonArea(this.vertices);
     }
 }

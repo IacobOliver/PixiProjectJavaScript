@@ -37,7 +37,7 @@ export class ShapeFactory {
         const args = [x, y, color, this.app]
         const type = this.shapeTypes[this.getRandomShapeIndex()];
         const shape = new type(...args);
-        shape.velocityY = 0; // Starting vertical velocity
+        shape.velocityY = 0;
         return shape
     }
 
@@ -45,11 +45,9 @@ export class ShapeFactory {
        
         shapes.forEach(shape => {
             if (shape.sprite) {
-                // Apply gravity
                 shape.velocityY += gravityValue
                 shape.setPosition(shape.getPosition().x, shape.getPosition().y + shape.velocityY);
 
-                // Check for collision with the ground
                 if (shape.getPosition().y > this.app.screen.height - shape.sprite.height + 300) {
                     shape.setPosition(shape.getPosition().x, this.app.screen.height - shape.sprite.height);
                     this.removeShape(shape)
