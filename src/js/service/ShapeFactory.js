@@ -1,4 +1,4 @@
-import { Ellipse } from "../figures/Ellipse.js";
+import { Ellipse } from "../figures/ellipse.js";
 import { Circle } from "../figures/circle.js";
 import { FiveSide } from "../figures/fiveSide.js";
 import { FourSide } from "../figures/fourSide.js";

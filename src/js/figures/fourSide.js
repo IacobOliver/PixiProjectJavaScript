@@ -1,4 +1,3 @@
-import { polygonArea } from "../service/HelperFunction.js";
 import { Shape } from "./shape.js";
 
 class FourSide extends Shape {
