@@ -21,9 +21,6 @@ class FiveSide extends Shape {
         this.graphics.closePath();
     }
 
-    getArea() {
-        return polygonArea(this.vertices);
-    }
 }
 
 export { FiveSide };

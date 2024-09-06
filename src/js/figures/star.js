@@ -22,18 +22,6 @@ class Star extends Shape {
         this.graphics.closePath();
     }
 
-    getArea() {
-        const numPoints = this.vertices.length;
-        let area = 0;
-
-        for (let i = 0; i < numPoints; i++) {
-            const j = (i + 1) % numPoints;
-            area += this.vertices[i].x * this.vertices[j].y;
-            area -= this.vertices[j].x * this.vertices[i].y;
-        }
-
-        return Math.abs(area) / 2;
-    }
 }
 
 export { Star };

@@ -16,10 +16,6 @@ class FourSide extends Shape {
         this.graphics.lineTo(point4.x, point4.y);
         this.graphics.lineTo(point1.x, point1.y);
     }
-
-    getArea() {
-        return polygonArea(this.vertices);
-    }
 }
 
 export { FourSide };

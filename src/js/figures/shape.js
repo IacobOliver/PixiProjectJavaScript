@@ -26,10 +26,6 @@ class Shape {
         throw new Error("Method 'drawShape()' must be implemented.");
     }
 
-    getArea() {
-        throw new Error("Method 'getArea()' must be implemented.");
-    }
-
     getSprite() {
         return this.sprite;
     }

@@ -19,9 +19,6 @@ class ThreeSide extends Shape {
         this.graphics.lineTo(0, 0); 
     }
 
-    getArea() {
-        return polygonArea(this.vertices);
-    }
 }
 
 export { ThreeSide };
