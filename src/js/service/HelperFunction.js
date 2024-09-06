@@ -14,8 +14,3 @@ export function polygonArea(vertices) {
     area = Math.abs(area) / 2;
     return area;
 }
-
-
-export function calculateTotalArea(shapes) {
-    return Math.floor(shapes.reduce((total, shape) => total + shape.getArea(), 0));
-}
